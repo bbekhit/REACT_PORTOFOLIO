@@ -5,6 +5,7 @@
     rgba($secondary-color, $background-opacity)
   );
   height: 100vh;
+  overflow: hidden;
 
   @include respond(phone) {
     display: flex;
