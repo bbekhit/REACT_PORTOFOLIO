@@ -1,0 +1,65 @@
+.home-wrapper {
+  @include background;
+
+  .home {
+    padding: 5rem;
+    height: 100vh;
+
+    &__lg-heading {
+      font-size: 10rem;
+      margin-top: 20vh;
+      margin-left: -0.67rem;
+
+      @include respond(phone) {
+        font-size: 6rem;
+        white-space: nowrap;
+      }
+
+      .secondary-text {
+        color: $secondary-color;
+      }
+    }
+
+    &__sm-heading {
+      margin-bottom: 3rem;
+      font-size: 3rem;
+      background-image: linear-gradient(
+        to right,
+        $white-color,
+        $secondary-color
+      );
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: 500;
+
+      @include respond(phone) {
+        margin-bottom: 1rem;
+        font-size: 2rem;
+        white-space: nowrap;
+      }
+    }
+
+    &__icon-item {
+      &:link,
+      &:visited {
+        font-size: 5rem;
+        color: $white-color;
+        @include easeInOut;
+      }
+
+      &:not(:last-child) {
+        margin-right: 0.5rem;
+      }
+
+      &:hover {
+        color: $secondary-color;
+      }
+    }
+  }
+}
+
+@for $x from 1 through 4 {
+  .menu__item.show:nth-child(#{$x}) {
+    transition-delay: $x * 0.1s;
+  }
+}
