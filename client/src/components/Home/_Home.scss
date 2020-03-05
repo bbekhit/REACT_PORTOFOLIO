@@ -1,9 +1,28 @@
 .home-wrapper {
-  @include background;
+  background: linear-gradient(
+      to bottom,
+      rgba($primary-color, $background-opacity),
+      rgba($secondary-color, $background-opacity)
+    ),
+    $home-image;
+  background-attachment: fixed;
+  background-size: cover;
+
+  @include respond(phone) {
+    background: linear-gradient(
+      to bottom,
+      rgba($primary-color, $background-opacity),
+      rgba($secondary-color, $background-opacity)
+    );
+  }
 
   .home {
     padding: 5rem;
     height: 100vh;
+
+    @include respond(phone) {
+      padding: 2.5rem;
+    }
 
     &__lg-heading {
       font-size: 10rem;
