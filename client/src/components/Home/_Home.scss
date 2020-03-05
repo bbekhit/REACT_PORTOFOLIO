@@ -1,4 +1,5 @@
 .home-wrapper {
+  padding: 5rem;
   height: 100vh;
   background: linear-gradient(
       to bottom,
@@ -8,6 +9,10 @@
     $home-image;
   background-attachment: fixed;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 
   @include respond(phone) {
     background: linear-gradient(
@@ -17,23 +22,22 @@
     );
     height: 100vh;
     overflow: hidden;
+    padding: 2.5rem;
   }
 
   .home {
-    padding: 5rem;
-
     @include respond(phone) {
-      padding: 2.5rem;
+      margin-top: -25rem;
     }
 
     &__lg-heading {
       font-size: 10rem;
-      margin-top: 20vh;
       margin-left: -0.67rem;
 
       @include respond(phone) {
         font-size: 5rem;
         white-space: nowrap;
+        margin-left: -2px;
       }
 
       .secondary-text {

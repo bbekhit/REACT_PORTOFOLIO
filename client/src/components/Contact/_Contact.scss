@@ -6,19 +6,14 @@
   );
   height: 100vh;
   overflow: hidden;
-
-  @include respond(phone) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .contact__form {
     border: 2px solid $secondary-color;
     height: 80vh;
     width: 60vw;
-    margin: 6rem auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
