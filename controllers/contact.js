@@ -1,14 +1,17 @@
 require("dotenv").config();
 const sgMail = require("@sendgrid/mail"); // SENDGRID_API_KEY
-sgMail.setApiKey(process.env.SENDGRID_KEY);
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 exports.contactForm = (req, res) => {
   const { email, name, message } = req.body;
-  // console.log("emial", email);
 
   const emailData = {
     to: process.env.EMAIL_TO,
     from: "no-reply@portofolio",
+    username: process.env.SENDGRID_USERNAME,
+    password: process.env.SENDGRID_PASSWORD,
+    domain: "heroku.com",
+    path: "587",
     subject: `Contact form - ${process.env.APP_NAME}`,
     text: `Email received from contact from \n Sender name: ${name} \n Sender email: ${email} \n Sender message: ${message}`,
     html: `
@@ -21,10 +24,15 @@ exports.contactForm = (req, res) => {
         `
   };
 
-  sgMail.send(emailData).then(sent => {
-    return res.json({
-      success: true,
-      message: "Thank you for contacting us"
+  sgMail
+    .send(emailData)
+    .then(sent => {
+      return res.json({
+        success: true,
+        message: "Thank you for contacting us"
+      });
+    })
+    .catch(error => {
+      res.status(400).send(error);
     });
-  });
 };
